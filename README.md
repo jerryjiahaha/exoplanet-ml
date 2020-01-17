@@ -49,6 +49,7 @@ C++ light curve operations.
 ## Required Packages
 
 * **TensorFlow** ([instructions](https://www.tensorflow.org/install/))
+* **TensorFlow Probability** ([instructions](https://www.tensorflow.org/probability/install))
 * **Pandas** ([instructions](http://pandas.pydata.org/pandas-docs/stable/install.html))
 * **NumPy** ([instructions](https://docs.scipy.org/doc/numpy/user/install.html))
 * **SciPy** ([instructions](https://scipy.org/install.html))

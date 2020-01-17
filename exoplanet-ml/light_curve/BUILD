@@ -2,6 +2,10 @@ package(default_visibility = ["//visibility:public"])
 
 licenses(["notice"])  # Apache 2.0
 
+load("@com_google_protobuf//:protobuf.bzl", "py_proto_library")
+load("@rules_proto//proto:defs.bzl", "proto_library")
+
+
 py_library(
     name = "kepler_io",
     srcs = ["kepler_io.py"],
@@ -65,14 +69,23 @@ py_test(
     ],
 )
 
-proto_library(
-    name = "light_curve_pb2",
-    srcs = ["light_curve.proto"],
-    cc_api_version = 2,
-)
-
 py_proto_library(
     name = "light_curve_py_pb2",
-    api_version = 2,
-    deps = [":light_curve_pb2"],
+    srcs_version = "PY2AND3",
+    srcs = glob(["proto/*.proto"]),
+    deps = [
+        "@com_google_protobuf//:protobuf_python",
+],
 )
+
+#proto_library(
+#    name = "light_curve_pb2",
+#    srcs = ["light_curve.proto"],
+##    cc_api_version = 2,
+#)
+
+#py_proto_library(
+#    name = "light_curve_py_pb2",
+##    api_version = 2,
+#    deps = [":light_curve_pb2"],
+#)
